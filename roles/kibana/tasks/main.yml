@@ -1,0 +1,12 @@
+---
+- name: Install Kibana package
+  package:
+    name: kibana
+    state: present
+
+- name: Ensure kibana started
+  service:
+    name: kibana
+    state: started
+    enabled: yes
+

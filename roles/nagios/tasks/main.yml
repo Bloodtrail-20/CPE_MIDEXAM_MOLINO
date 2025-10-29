@@ -1,0 +1,16 @@
+---
+- name: Install nagios (package and dependencies)
+  package:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - nagios4
+    - nagios-plugins-basic
+  when: ansible_os_family == 'Debian'
+
+- name: Ensure nagios started
+  service:
+    name: nagios
+    state: started
+    enabled: yes
+

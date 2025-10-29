@@ -1,0 +1,12 @@
+---
+- name: Install influxdb
+  package:
+    name: influxdb
+    state: present
+
+- name: Ensure influxdb started
+  service:
+    name: influxdb
+    state: started
+    enabled: yes
+

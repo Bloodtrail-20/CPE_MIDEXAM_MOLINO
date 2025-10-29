@@ -1,0 +1,18 @@
+---
+- name: Install apt-transport-https for Debian
+  apt:
+    name: apt-transport-https
+    state: present
+  when: ansible_os_family == 'Debian'
+
+- name: Install Elasticsearch (simplified: use package manager)
+  package:
+    name: elasticsearch
+    state: present
+
+- name: Ensure elasticsearch started
+  service:
+    name: elasticsearch
+    state: started
+    enabled: yes
+

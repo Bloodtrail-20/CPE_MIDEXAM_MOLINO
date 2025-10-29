@@ -1,0 +1,12 @@
+---
+- name: Install prometheus (if package available)
+  package:
+    name: prometheus
+    state: present
+
+- name: Ensure prometheus started
+  service:
+    name: prometheus
+    state: started
+    enabled: yes
+
