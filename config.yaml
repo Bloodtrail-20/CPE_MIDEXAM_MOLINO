@@ -1,0 +1,16 @@
+elasticsearch_version: "7.x"
+kibana_version: "7.x"
+logstash_version: "7.x"
+grafana_version: "8.0.0"
+prometheus_version: "2.31.1"
+influxdb_version: "1.8.10"
+nagios_version: "4.4.6"
+
+
+es_http_port: 9200
+kibana_port: 5601
+logstash_port: 5044
+grafana_port: 3000
+prometheus_port: 9090
+influxdb_port: 8086
+nagios_port: 80

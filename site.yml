@@ -1,0 +1,62 @@
+---
+- hosts: all
+  become: yes
+  vars_files:
+    - config.yaml
+  pre_tasks:
+    - name: Update apt cache (Debian)
+      apt:
+        update_cache: yes
+      when: ansible_os_family == 'Debian'
+
+    - name: Update dnf cache (RedHat)
+      dnf:
+        update_cache: yes
+      when: ansible_os_family == 'RedHat'
+
+# Apply roles per group
+- hosts: elasticsearch
+  become: yes
+  roles:
+    - elasticsearch
+
+- hosts: kibana
+  become: yes
+  roles:
+    - kibana
+
+- hosts: logstash
+  become: yes
+  roles:
+    - logstash
+
+- hosts: nagios
+  become: yes
+  roles:
+    - nagios
+
+- hosts: grafana
+  become: yes
+  roles:
+    - grafana
+
+- hosts: prometheus
+  become: yes
+  roles:
+    - prometheus
+
+- hosts: influxdb
+  become: yes
+  roles:
+    - influxdb
+
+- hosts: lamp_httpd
+  become: yes
+  roles:
+    - lamp_httpd
+
+- hosts: lamp_mariadb
+  become: yes
+  roles:
+    - lamp_mariadb
+
